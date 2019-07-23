@@ -43,11 +43,13 @@ run sudo apt autoremove -y
 echo 
 echo " == Zsh config == "
 if [ ! -d "/opt/oh-my-zsh" ]; then
-    run sudo git config --global http.proxy "${https_proxy}"
-    run sudo git config --global https.proxy "${https_proxy}"
-    run sudo git config --global https.sslVerify "false"
-    run sudo git clone --depth=1 \
-        https://github.com/simie-cc/oh-my-zsh.git /opt/oh-my-zsh
+    run git config --global http.proxy "${https_proxy}"
+    run git config --global https.proxy "${https_proxy}"
+    run git config --global https.sslVerify "false"
+    run git clone --depth=1 \
+        https://github.com/simie-cc/oh-my-zsh.git 
+    run sudo mv /tmp/oh-my-zsh /opt/oh-my-zsh
+    run sudo chown -R root:root /opt/oh-my-zsh
     run sudo chsh -s /usr/bin/zsh ${USER}
     run cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
 
