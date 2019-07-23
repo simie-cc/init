@@ -6,8 +6,11 @@ if [ $? -ne 0 ]; then
     echo "    Error: Connection test failed."
     echo "    Error: provide https_proxy if needed"
     exit 1
+else
+    echo "    Success!"
 fi
 
+echo
 echo " == Config ssh == "
 grep 'simie@cimie-ud' .ssh/authorized_keys > /dev/null 
 if [ $? -ne 0 ]; then
