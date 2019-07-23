@@ -55,6 +55,7 @@ if [ ! -d "/opt/oh-my-zsh" ]; then
         https://github.com/simie-cc/oh-my-zsh.git /tmp/oh-my-zsh
     run sudo mv /tmp/oh-my-zsh /opt/oh-my-zsh
     run sudo chown -R root:root /opt/oh-my-zsh
+    run sudo chmod -R g-w,o-w /opt/oh-my-zsh
     run sudo chsh -s /usr/bin/zsh ${USER}
     run cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
 
