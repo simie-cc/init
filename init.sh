@@ -18,6 +18,7 @@ else
     echo "    Success!"
 fi
 
+echo
 echo " == Check sudo == "
 run sudo whoami
 echo "    Success!"
@@ -51,7 +52,7 @@ if [ ! -d "/opt/oh-my-zsh" ]; then
     run git config --global https.proxy "${https_proxy}"
     run git config --global https.sslVerify "false"
     run git clone --depth=1 \
-        https://github.com/simie-cc/oh-my-zsh.git 
+        https://github.com/simie-cc/oh-my-zsh.git /tmp/oh-my-zsh
     run sudo mv /tmp/oh-my-zsh /opt/oh-my-zsh
     run sudo chown -R root:root /opt/oh-my-zsh
     run sudo chsh -s /usr/bin/zsh ${USER}
