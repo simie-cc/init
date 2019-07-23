@@ -18,6 +18,10 @@ else
     echo "    Success!"
 fi
 
+echo " == Check sudo == "
+run sudo ls
+echo "    Success!"
+
 echo
 echo " == Config ssh == "
 grep 'simie@cimie-ud' .ssh/authorized_keys > /dev/null 
