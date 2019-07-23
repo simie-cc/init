@@ -1,4 +1,12 @@
 #!/bin/bash
+run() {
+    echo "[Cmd] $*"
+    $*
+    if [ $? -ne 0 ]; then
+        echo "Failed."
+        exit 1
+    fi
+}
 
 echo " == Check network connectivity == "
 curl -sSf  https://www.google.com/ > /dev/null
@@ -26,22 +34,22 @@ fi
 
 echo 
 echo " == Apt updates == "
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y git zsh
-sudo apt remove -y cloud-init
-sudo apt autoremove -y
+run sudo apt update
+run sudo apt upgrade -y
+run sudo apt install -y git zsh
+run sudo apt remove -y cloud-init
+run sudo apt autoremove -y
 
 echo 
 echo " == Zsh config == "
 if [ ! -d "/opt/oh-my-zsh" ]; then
-    sudo git clone --config https.proxy="${https_proxy}" --depth=1 \
+    run sudo git clone --config https.proxy="${https_proxy}" --depth=1 \
         https://github.com/simie-cc/oh-my-zsh.git /opt/oh-my-zsh
-    sudo chsh -s /usr/bin/zsh ${USER}
-    cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
+    run sudo chsh -s /usr/bin/zsh ${USER}
+    run cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
 
-    sudo chsh -s /usr/bin/zsh
-    sudo cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
+    run sudo chsh -s /usr/bin/zsh
+    run sudo cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
 
     echo "    zsh config finish."
 else
