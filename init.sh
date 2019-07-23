@@ -19,7 +19,7 @@ else
 fi
 
 echo " == Check sudo == "
-run sudo ls
+run sudo whoami
 echo "    Success!"
 
 echo
