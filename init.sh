@@ -60,7 +60,7 @@ if [ ! -d "/opt/oh-my-zsh" ]; then
     run cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
 
     run sudo chsh -s /usr/bin/zsh
-    run sudo cp /opt/oh-my-zsh/templates/zshrc.my-template ~/.zshrc
+    run sudo cp /opt/oh-my-zsh/templates/zshrc.my-template /root/.zshrc
 
     echo "    zsh config finish."
 else
