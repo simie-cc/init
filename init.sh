@@ -40,7 +40,7 @@ fi
 echo 
 echo " == Apt updates == "
 run sudo apt update
-run sudo apt upgrade -y
+run DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
 run sudo apt install -y git zsh
 run sudo apt remove -y cloud-init
 run sudo apt autoremove -y
