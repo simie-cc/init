@@ -1,9 +1,9 @@
 #!/bin/bash
 run() {
-    echo "[Cmd] $*"
-    $*
+    echo "[Cmd] $@"
+    "$@"
     if [ $? -ne 0 ]; then
-        echo "Failed."
+        echo "  => Failed!"
         exit 1
     fi
 }
